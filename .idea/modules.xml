@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Catalogs/Catalogs.iml" filepath="$PROJECT_DIR$/Catalogs/Catalogs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Customers/Customers.iml" filepath="$PROJECT_DIR$/Customers/Customers.iml" />
       <module fileurl="file://$PROJECT_DIR$/HystrixDashboard/HystrixDashboard.iml" filepath="$PROJECT_DIR$/HystrixDashboard/HystrixDashboard.iml" />
       <module fileurl="file://$PROJECT_DIR$/msa_netflix_v1.0.1.iml" filepath="$PROJECT_DIR$/msa_netflix_v1.0.1.iml" />
     </modules>

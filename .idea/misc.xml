@@ -4,6 +4,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/HystrixDashboard/pom.xml" />
+        <option value="$PROJECT_DIR$/Catalogs/pom.xml" />
+        <option value="$PROJECT_DIR$/Customers/pom.xml" />
       </list>
     </option>
   </component>

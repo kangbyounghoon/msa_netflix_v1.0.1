@@ -6,12 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Catalogs" />
+        <module name="Customers" />
         <module name="HystrixDashboard" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Catalogs" target="1.8" />
       <module name="Customer" target="1.8" />
+      <module name="Customers" target="1.8" />
       <module name="HystrixDashboard" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -19,6 +22,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Catalogs" options="-parameters" />
       <module name="Customer" options="-parameters" />
+      <module name="Customers" options="-parameters" />
       <module name="HystrixDashboard" options="-parameters" />
     </option>
   </component>
