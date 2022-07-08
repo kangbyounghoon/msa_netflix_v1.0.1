@@ -3,4 +3,11 @@ server:
 spring:
   application:
     name: catalog
+hystrix:
+  command:
+    default:  # command key. use 'default' for global setting.
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
 
