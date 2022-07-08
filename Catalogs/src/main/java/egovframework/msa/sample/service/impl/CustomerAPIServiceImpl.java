@@ -8,6 +8,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class CustomerAPIServiceImpl implements CustomerAPIService {
 
+    public static final String url = "http://localhost:8082/customers/";
     private final RestTemplate restTemplate;
 
     public CustomerAPIServiceImpl(RestTemplate restTemplate) {
@@ -18,11 +19,11 @@ public class CustomerAPIServiceImpl implements CustomerAPIService {
     @Override
     public String getCustomerDetail(String customerId) {
 //        return customerId;
-        return restTemplate.getForObject("http://localhost:8082/customers/" + customerId, String.class);
+        return restTemplate.getForObject(url + customerId, String.class);
     }
 
     public String getCustomerDetailFallback(String customerId, Throwable ex) {
-        System.out.println("getCustomerDetailFallback Error : " + ex.getMessage());
+        System.out.println("getCustomerDetailFallback CustomerId = " + customerId + " Error : " + ex.getMessage());
         return "[고객정보 조회가 지연되고 있습니다.]";
     }
 }
