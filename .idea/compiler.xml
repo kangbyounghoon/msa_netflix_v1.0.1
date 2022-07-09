@@ -6,15 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="EurekaServer" />
+        <module name="HystrixDashboard" />
         <module name="Catalogs" />
         <module name="Customers" />
-        <module name="HystrixDashboard" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Catalogs" target="1.8" />
       <module name="Customer" target="1.8" />
       <module name="Customers" target="1.8" />
+      <module name="EurekaServer" target="1.8" />
       <module name="HystrixDashboard" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -23,6 +25,7 @@
       <module name="Catalogs" options="-parameters" />
       <module name="Customer" options="-parameters" />
       <module name="Customers" options="-parameters" />
+      <module name="EurekaServer" options="-parameters" />
       <module name="HystrixDashboard" options="-parameters" />
     </option>
   </component>
