@@ -19,3 +19,8 @@ management:
     web:
       exposure:
         include: "*"
+
+#ribbon
+product:
+  ribbon:
+    listOfServers: localhost:8082

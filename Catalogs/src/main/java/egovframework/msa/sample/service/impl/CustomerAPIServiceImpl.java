@@ -8,7 +8,8 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class CustomerAPIServiceImpl implements CustomerAPIService {
 
-    public static final String url = "http://localhost:8082/customers/";
+//    public static final String url = "http://localhost:8082/customers/";
+    public static final String url = "http://product/customers/";
     private final RestTemplate restTemplate;
 
     public CustomerAPIServiceImpl(RestTemplate restTemplate) {
