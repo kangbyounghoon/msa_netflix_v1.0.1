@@ -26,3 +26,6 @@ product:
     listOfServers: localhost:8082, localhost:7777
     MaxAutoRetries: 0
     MaxAutoRetriesNextServer: 1
+eureka: #eureka client config
+  instance:
+    prefer-ip-address: true

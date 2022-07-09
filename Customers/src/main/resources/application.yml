@@ -3,3 +3,6 @@ server:
 spring:
   application:
     name: customer
+eureka: #eureka client config
+  instance:
+    prefer-ip-address: true
