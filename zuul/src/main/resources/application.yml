@@ -1,0 +1,67 @@
+spring:
+  application:
+    name: zuul
+server:
+  port: 8765
+
+#zuul routes(서비스별 설정)
+zuul:
+  routes:
+    catalog:
+      path: /catalogs/**
+      service-id: catalog
+      strip-prefix: false
+    customer:
+      path: /customers/**
+      service-id: customer
+      strip-prefix: false
+# spring-cloud-zuul에서 hystrix는 기본 세마포 에서 thread 로 쓰겠다 선언.
+  ribbon-isolation-strategy: THREAD
+# hystrix의 thread 방식으로 바꿨을 때 서비스별(예: catalog, customer) 별도의 쓰레드를 갖게 하는 선언.
+  thread-pool:
+    use-separate-thread-pools: true
+    thread-pool-key-prefix: zuul-
+
+#hystrix default timeout 설정
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000 # default 1000 ms
+#zuul 설정에서 hystrix 설정을 서비스별 쓰레드를 갖게 설정 했다면 아래 설정도 같이 포함.
+  thread-pool:
+    zuul-catalog:
+      coreSize: 30
+      maximumSize: 100
+      allowMaximumSizeToDivergeFromCoreSize: true
+    zuul-customer:
+      coreSize: 30
+      maximumSize: 100
+      allowMaximumSizeToDivergeFromCoreSize: true
+
+#서비스별 ribbon 설정
+customer:
+  ribbon:
+    MaxAutoRetriesNextServer: 1
+    ReadTimeout: 3000
+    ConnectTimeout: 1000
+    MaxTotalConnections: 300
+    MaxConnectionsPerHost: 100
+catalog:
+  ribbon:
+    MaxAutoRetriesNextServer: 1
+    ReadTimeout: 3000
+    ConnectTimeout: 1000
+    MaxTotalConnections: 300
+    MaxConnectionsPerHost: 100
+
+# eureka client add
+eureka:
+  instance:
+    non-secure-port: ${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

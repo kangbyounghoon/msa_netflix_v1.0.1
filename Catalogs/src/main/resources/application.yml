@@ -23,7 +23,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 3000 # default 1,000ms
+            timeoutInMilliseconds: 3000 # default 1,000ms (feign 과 같이 사용 시 hystrix timeout 이 우선 적용
       circuitBreaker:
         requestVolumeThreshold: 1 #default 20
         errorThresholdPercentage: 50 #default 50
