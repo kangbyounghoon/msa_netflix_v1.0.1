@@ -3,6 +3,20 @@ server:
 spring:
   application:
     name: catalog
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka: #eureka client config
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka #default address
+
 hystrix:
   command:
     default:  # command key. use 'default' for global setting.
@@ -14,21 +28,13 @@ hystrix:
         requestVolumeThreshold: 1 #default 20
         errorThresholdPercentage: 50 #default 50
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-
-#ribbon
-#customer:
-#  ribbon:
-#    listOfServers: localhost:8082, localhost:7777
-#    MaxAutoRetries: 0
-#    MaxAutoRetriesNextServer: 1
-eureka: #eureka client config
-  instance:
-    prefer-ip-address: true
+#feign config
+feign:
+  hystrix:
+    enabled: true
   client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka #default address
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
