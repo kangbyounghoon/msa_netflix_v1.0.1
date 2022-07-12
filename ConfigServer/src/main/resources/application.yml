@@ -6,6 +6,7 @@ spring:
       -templateSimple
       -templatePortal
       -templateEnterprise
+# 원격저장소 사용시 active: cloud?
   profiles:
     active: native
 # 로컬 저장소 사용 시 설정
