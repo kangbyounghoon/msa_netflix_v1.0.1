@@ -15,6 +15,12 @@ import org.springframework.context.annotation.ComponentScan;
 public class CatalogsApplication {
 
     public static void main(String[] args) {
+        String profile = System.getProperty("spring.profiles.active");
+        if (profile == null) {
+            System.setProperty("spring.profiles.active", "dev");
+        }
+
+        System.out.println("Catalogs profile real mode ======== " + System.getProperty("spring.profiles.active"));
         SpringApplication.run(CatalogsApplication.class, args);
     }
 

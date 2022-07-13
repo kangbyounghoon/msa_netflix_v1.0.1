@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: catalog
+#Config Server 연결
+  cloud:
+    config:
+      uri: http://localhost:8888
 
 management:
   endpoints:
@@ -12,6 +16,7 @@ management:
 
 eureka: #eureka client config
   instance:
+    non-secure-port: ${server.port}
     prefer-ip-address: true
   client:
     service-url:
@@ -38,3 +43,7 @@ feign:
         connectTimeout: 5000
         readTimeout: 5000
         loggerLevel: full
+
+
+
+

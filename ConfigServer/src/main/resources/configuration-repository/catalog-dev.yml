@@ -1,0 +1,10 @@
+config:
+  profile: catalog-dev2
+  message: catalog(dev)2
+
+Globals:
+  DbType: mysql
+  DriverClassName: com.mysql.jdbc.Driver
+  Url: jdbc:mysql://127.0.0.1:3306/ebt
+  UserName: com
+  Password: com01
