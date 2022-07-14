@@ -7,14 +7,22 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+#rabbitmq      
+  rabbitmq:
+    host: localhost #rabbitmq 호스트
+    port: 5672      #rabbitmq 서비스포트
+    username: guest #rabbitmq 사용자명
+    password: guest #rabbitmq 비밀번호
+    #actuator의 bus-refresh (POST) 사용
 
+#actuator 허용범위
 management:
   endpoints:
     web:
       exposure:
         include: "*"
-
-eureka: #eureka client config
+#Eureka Server 연결
+eureka: 
   instance:
     non-secure-port: ${server.port}
     prefer-ip-address: true

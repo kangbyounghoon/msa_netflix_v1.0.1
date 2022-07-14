@@ -1,0 +1,24 @@
+version: '3.2'
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    restart: always
+    environment:
+      TZ: Asia/Seoul
+
+#외부 네트워크 사용 (docker network create command로 미리 만들어 놓은 network 사용시 docker network create msa_netflix_v1_0_1)
+networks:
+  default:
+    external:
+      name: msa_netflix_v1_0_1
+
+#docker 외부 network 생성
+#docker network create msa_netflix_v1_0_1
+
+#현재 파일 경로 이동 후 아래 command
+#docker-compose -f docker-compose.yml up
+#docker-compose docker-compose.yml up

@@ -1,6 +1,6 @@
 config:
-  profile: catalog-dev2
-  message: catalog(dev)2
+  profile: catalog-dev
+  message: catalog(dev)
 
 Globals:
   DbType: mysql
