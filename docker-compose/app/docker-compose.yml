@@ -1,5 +1,16 @@
 version: '3.2'
 services:
+  config:
+    container_name: config
+    image: egovframe/msa-edu-config:latest
+    ports:
+      - "8888:8888"
+    restart: always
+    volumes:
+      - C:\IdeaProjects\msa_netflix_v1.0.1\ConfigServer\src\main\resources\configuration-repository:/usr/app/config
+    environment:
+      TZ: Asia/Seoul
+
   rabbitmq:
     container_name: rabbitmq
     image: rabbitmq:management
@@ -10,7 +21,8 @@ services:
     environment:
       TZ: Asia/Seoul
 
-#외부 네트워크 사용 (docker network create command로 미리 만들어 놓은 network 사용시 docker network create msa_netflix_v1_0_1)
+#외부 네트워크 사용 (docker network create command로 미리 만들어 놓은 network 사용 시 설정)
+#docker network create msa_netflix_v1_0_1
 networks:
   default:
     external:
